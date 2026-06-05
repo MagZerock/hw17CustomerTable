@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edison's Computer Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="public/styles.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            💻 <span>Edison's</span> Computer Store
+        </div>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('view', event)">Customer View</button>
+            <button class="tab-btn" onclick="switchTab('add', event)">Add Client</button>
+        </div>
+    </nav>
+
+    <main>
+        <section id="view-section" class="view-section active">
+            <div class="card">
+                <h2>Customer List</h2>
+                <div class="table-container">
+                    <table id="customerTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Money Spent</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr>
+                                <td colspan="4" class="empty-state">Loading data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="total-block" style="margin-top: 15px; text-align: right; font-size: 1.2rem;">
+                    <span>Total Money Spent: </span>
+                    <span id="total-display" style="font-weight: bold;">$0.00</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="add-section" class="view-section">
+            <div class="card form-container">
+                <h2>Register New Customer</h2>
+                <div id="formAlert" class="alert"></div>
+                <form id="addForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="id">Customer ID</label>
+                        <input type="number" id="id" name="id" required placeholder="Enter unique ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" required min="1" placeholder="Enter age">
+                    </div>
+                    <div class="form-group">
+                        <label for="money">Money Spent ($)</label>
+                        <input type="number" id="money" name="money" required step="0.01" min="0" placeholder="0.00">
+                    </div>
+                    <button type="submit" class="submit-btn">Register Customer</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="public/app.js"></script>
+</body>
+
+</html>
