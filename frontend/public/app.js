@@ -29,7 +29,8 @@ const formatCurrency = (value) => {
 
 async function fetchTotalMoney() {
     try {
-        const response = await fetch('http://localhost:3002/computerstore/customers/totalMoneySpent');
+        //const response = await fetch('http://localhost:3002/computerstore/customers/totalMoneySpent');
+        const response = await fetch('/computerstore/customers/totalMoneySpent');
         if (!response.ok) throw new Error('Failed to fetch total');
         
         const data = await response.json();
@@ -105,7 +106,7 @@ async function handleFormSubmit(e) {
     };
 
     try {
-        const response = await fetch('http://localhost:3002/computerstore/customer', {
+        const response = await fetch('/computerstore/customer', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(customerData)
