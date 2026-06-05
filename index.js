@@ -19,6 +19,6 @@ app.use("/computerstore", customerRouter);
 app.listen(port, () => console.log("David´s Computer Store Server is running on port -->" + port));
 
 app.use(express.static(path.join(__dirname, 'frontend')));
-app.get('/*', (req, res) => {
+app.get('/:path(*)', (req, res) => {
     res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
